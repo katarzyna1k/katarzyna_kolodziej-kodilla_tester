@@ -40,3 +40,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+.gradle
+.m2
+/target
+*/target
+/build
+*/build

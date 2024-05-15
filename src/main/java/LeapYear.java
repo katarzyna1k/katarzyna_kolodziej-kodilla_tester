@@ -6,11 +6,10 @@ public class LeapYear {
         System.out.println(year);
 
 
-            if ((year%4==0) && (year%100!=0) || (year%400==0)) {
-                System.out.println("To jest rok przestępny");
-            }
-            else{
-                System.out.println("To nie jest rok przestępny");
+        if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
+            System.out.println("To jest rok przestępny");
+        } else {
+            System.out.println("To nie jest rok przestępny");
         }
     }
 }

@@ -12,6 +12,6 @@ public class SimpleArray {
         System.out.println(sports);
 
         int numberOfElements = sport.length;
-        System.out.println("Ta tablica zawiera "+numberOfElements+" elementów");
+        System.out.println("Ta tablica zawiera " + numberOfElements + " elementów");
     }
 }

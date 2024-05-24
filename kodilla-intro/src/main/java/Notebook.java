@@ -3,7 +3,7 @@ public class Notebook {
     int price;
     int year;
 
-    public Notebook(int weight, int price, int year) {
+    public Notebook(int weight, int price, int year) { //konstruktor(nazwa zawsze jak nazwa klasy)
         this.weight = weight;
         this.price = price;
         this.year = year;

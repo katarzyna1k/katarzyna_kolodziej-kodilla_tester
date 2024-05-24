@@ -6,7 +6,7 @@ public class SimpleArray {
         sport[2] = "Hurling";
         sport[3] = "Tchoukball";
         sport[4] = "Unihokej";
-        sport[5] = "Lacrosse";
+         sport[5] = "Lacrosse";
 
         String sports = sport[2];
         System.out.println(sports);

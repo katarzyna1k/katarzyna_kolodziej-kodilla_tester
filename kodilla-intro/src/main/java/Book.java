@@ -16,11 +16,14 @@ public class Book {
     }
 
     public String getAuthor() {
-        return author;
+        String upperCaseAuthor = author.toUpperCase();
+        return upperCaseAuthor;
+
     }
 
     public static void main(String[] args) {
         Book book = Book.of("Isaac Asimov", "Fundation");
+
         book.getAuthor();
         book.getTitle();
 

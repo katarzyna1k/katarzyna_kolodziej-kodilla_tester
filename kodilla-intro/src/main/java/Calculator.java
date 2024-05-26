@@ -14,9 +14,9 @@ public class Calculator {
         return a - b;
     }
 
-    public  double circleArea(double r) {
-        String name= UserDialogs.getUsername();
-        System.out.println("Hi "+name+"wprowadziłeś swoje imię w klasie UserDialogs");
+    public double circleArea(double r) {
+        String name = UserDialogs.getUsername();
+        System.out.println("Hi " + name + " wprowadziłeś swoje imię w klasie UserDialogs");
         return PI * r * r;
     }
 

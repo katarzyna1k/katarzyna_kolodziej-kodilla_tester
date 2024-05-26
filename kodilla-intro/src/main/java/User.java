@@ -20,6 +20,7 @@ public class User {
         //brunhilda.averageAge();
         User[] users = {lola, kora, romuald, brunhilda}; //tablica zbiór obiektów, dlatego nie String;
 
+
         System.out.println("To jt suma wieku użytkowników Users: " + User.averageAge(users));
         System.out.println("Użytkownicy poniżej średniej wartości wieku: " + User.checkUser(users));
 

@@ -9,6 +9,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/kodilla-basic-tests" />
+            <option value="$PROJECT_DIR$/kodilla-basic-tests1" />
             <option value="$PROJECT_DIR$/kodilla-intro" />
           </set>
         </option>

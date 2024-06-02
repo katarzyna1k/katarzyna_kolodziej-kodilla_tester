@@ -3,11 +3,11 @@ package com.kodilla.inheritance.homework;
 public class OperatingSystem {
 
     private int yearRelease;
-    private int procesor;
+    private int processor;
 
-    public OperatingSystem(int yearRelease, int procesor) {
+    public OperatingSystem(int yearRelease, int processor) {
         this.yearRelease = yearRelease;
-        this.procesor = procesor;
+        this.processor = processor;
     }
 
     public void turnOn() {
@@ -19,16 +19,17 @@ public class OperatingSystem {
     }
 
     public int getProcessor() {
-        return procesor;
+        return processor;
     }
 
     public void checkProcessor() {
-        System.out.println("This system operates on " + procesor + " bits");
+        System.out.println("This system operates on " + processor + " bits");
     }
 
 
-    public static void connectPrinter() {
-        System.out.println("Please insert the cable into the correct slot");
+    public void connectPrinter() {
+        String text = "Please insert the cable into the correct slot";
+        System.out.println(text);
     }
 
 

@@ -29,12 +29,14 @@ public class Grades {
         grade1.add(1);
         grade1.add(1);
         grade1.add(1);
-        grade1.add(1);
-        grade1.add(1); //jeśli dod. 11 element to tylko nie bierze jego pod uwagę i liczy nie mnożąc problemów
+        //grade1.add(1);
+
+
 
         System.out.println("ostadnia ocena " + grade1.checkGrades()); //tylko możliwe tak bo met. zwraca wart.,trzeba wywołać met.
         System.out.println("ostadnia suma " + grade1.sumGrades());
         System.out.println("ostadnia srednia " + grade1.sredniaZsumy());
+
 
 
         Grades grade2 = new Grades();//tw. tu jt druga tablica

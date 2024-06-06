@@ -10,12 +10,12 @@ public class Application {
         calc.pow();
 
 
-        int sumResult = calc.addition();
+        //int sumResult = calc.addition();
         int subResult = calc.subtraction();
         double doubleResult = calc.pow();
 
         System.out.println("wynik dodawania to " + calc.addition() + " wynik odejmowania to " + calc.subtraction() + " wynik potęgowania to " + calc.pow());
-        boolean correct = ResultChecker.assertEquals(21, sumResult);
+        boolean correct = ResultChecker.assertEquals(21, calc.addition());//sumResult);
         if (correct) {
             System.out.println("Metoda addition działą poprawnie dla liczb " + calc.getIntA() + " i " + calc.getIntB());
         } else {

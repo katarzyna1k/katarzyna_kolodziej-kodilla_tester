@@ -14,10 +14,9 @@ public class UserColours {
         while (true) { //zapyta tylko raz przy blędnym wpisaniu!
             System.out.println("Choose your colour: ");
             String colour = scanner.nextLine().trim().toUpperCase();
-            Colour colourGreen = Colour.GREEN;
             switch (colour) {
                 case "G":
-                    return "Green";
+                    return Colour.GREEN.name();
                 case "R":
                     return "RED";
                 case "Y":

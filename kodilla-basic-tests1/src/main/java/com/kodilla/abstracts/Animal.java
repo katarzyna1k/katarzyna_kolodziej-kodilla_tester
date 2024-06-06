@@ -15,6 +15,8 @@ public abstract class Animal {
 
     public abstract void giveVoice();
 
+    public abstract void hasName();
+
     public String getName() {
         return name;
     }

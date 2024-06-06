@@ -11,8 +11,8 @@ public class Hairdresser extends Job {
         return "Hairdresser";
     }
 
-    public static String getResponsibilities() {
-        String hairdresserRespo = " strzyżeniem, modelowaniem, koloryzacją włosów";
-        return hairdresserRespo;
+    public String getResponsibilities() {
+        //" strzyżeniem, modelowaniem, koloryzacją włosów";
+        return this.responsibilities;
     }
 }

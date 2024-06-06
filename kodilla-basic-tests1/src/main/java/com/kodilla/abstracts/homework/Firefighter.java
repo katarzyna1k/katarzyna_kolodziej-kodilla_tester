@@ -11,8 +11,8 @@ public class Firefighter extends Job {
         return "Firefighter";
     }
 
-    public static String getResponsibilities() {
-        String firefighterRespo = "ratowanie zagrożonych ludzi, zwierząt, mienia i środowiska";
-        return firefighterRespo;
+    public  String getResponsibilities() {
+         //"ratowanie zagrożonych ludzi, zwierząt, mienia i środowiska";
+        return this.responsibilities;
     }
 }

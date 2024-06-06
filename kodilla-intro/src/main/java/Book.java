@@ -6,7 +6,7 @@ public class Book {
         return new Book(author, title);
     }
 
-    public Book(String author, String title) {
+    private Book(String author, String title) {
         this.author = author;
         this.title = title;
     }

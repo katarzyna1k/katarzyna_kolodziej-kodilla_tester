@@ -10,8 +10,7 @@ public class Doctor extends Job {
         return "Doctor";
     }
 
-    public static String getResponsibilities() {
-        String doctorRespo = "zajmuje się utrzymywaniem i przywracaniem zdrowia";
-        return doctorRespo;
+    public  String getResponsibilities() {
+        return this.responsibilities;
     }
 }

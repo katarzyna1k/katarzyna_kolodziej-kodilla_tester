@@ -22,7 +22,7 @@ public class User {
 
 
         System.out.println("To jt suma wieku użytkowników Users: " + User.averageAge(users));
-        System.out.println("Użytkownicy poniżej średniej wartości wieku: " + User.checkUser(users));
+        User.checkUser(users);
 
     }
 
@@ -36,18 +36,17 @@ public class User {
     }
 
 
-    public static String checkUser(User[] users) {
-        String youngestName = "";
+    public static void checkUser(User[] users) {
         int youngestAge = Integer.MAX_VALUE;
         for (int i = 0; i < users.length; i++) {
             int userAge = users[i].age;
             double average = User.averageAge(users);
             if (userAge < average && userAge < youngestAge) {
-                youngestName = users[i].name;
-                youngestAge = userAge;
+                System.out.println(users[i].name);
             }
+
         }
-        return  youngestName;
+
     }
 
 }

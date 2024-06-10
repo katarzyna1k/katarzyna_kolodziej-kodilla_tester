@@ -2,8 +2,9 @@ package com.kodilla.collections.interfaces.homework;
 
 public class CarRace {
     public static void main(String[] args) {
-        Ford ford = new Ford(55);
+        Car ford = new Ford(55);
         doRace(ford);
+        ford.increaseSpeed();
 
         Honda honda = new Honda(78);
         doRace(honda);

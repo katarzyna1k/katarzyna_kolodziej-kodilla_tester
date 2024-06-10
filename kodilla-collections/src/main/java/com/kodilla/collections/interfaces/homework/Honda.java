@@ -14,13 +14,11 @@ public class Honda implements Car {
 
     @Override
     public void increaseSpeed() {
-        int increasedSpeed = speed += 15;
-        System.out.println(increasedSpeed);
+        speed += 15;
     }
 
     @Override
     public void decreaseSpeed() {
-        int decreasedSpeed = speed -= 8;
-        System.out.println(decreasedSpeed);
+        speed -= 8;
     }
 }

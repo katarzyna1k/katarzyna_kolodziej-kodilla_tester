@@ -14,13 +14,13 @@ public class Tesla implements Car {
 
     @Override
     public void increaseSpeed() {
-        int increasedSpeed = speed += 12;
-        System.out.println(increasedSpeed);
+        speed += 12;
+
     }
 
     @Override
     public void decreaseSpeed() {
-        int decreasedSpeed = speed -= 10;
-        System.out.println(decreasedSpeed);
+        speed -= 10;
+
     }
 }

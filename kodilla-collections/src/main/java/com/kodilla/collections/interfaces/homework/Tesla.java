@@ -21,6 +21,12 @@ public class Tesla implements Car {
     @Override
     public void decreaseSpeed() {
         speed -= 10;
+    }
 
+    @Override
+    public String toString() {
+        return "Tesla{" +
+                "speed=" + speed +
+                '}';
     }
 }

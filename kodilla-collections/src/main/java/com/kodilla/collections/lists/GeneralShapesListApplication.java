@@ -16,10 +16,10 @@ public class GeneralShapesListApplication {
         shapes.add(new Circle(7.0));
         shapes.add(new Triangle(10.0, 4.0, 10.77));
 
-        shapes.remove(1);
-        shapes.remove(square);
-        Triangle triangle = new Triangle(10.0, 4.0, 10.77);
-        shapes.remove(triangle);
+        shapes.remove(1); //1.
+        shapes.remove(square);  //2.
+        Triangle identicTriangle = new Triangle(10.0, 4.0, 10.77);  //3.
+        shapes.remove(identicTriangle);
 
         System.out.println(shapes.size());
         for (Shape shape : shapes)

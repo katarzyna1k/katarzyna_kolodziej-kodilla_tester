@@ -4,14 +4,10 @@ public class RandomNumbers {
     public static void main(String[] args) {
         RandomNumbers lotto = new RandomNumbers();
 
-        int min = 0;
-        int max = 30;
-        int sum = 0;
-
         int maxSum = lotto.getSumOfRandomNumbers(5000);
 
         System.out.println("Zwracana liczba losowań: " + maxSum);
-        System.out.println("zw " + lotto.maxNumber(maxSum));
+
     }
 
 
@@ -19,24 +15,23 @@ public class RandomNumbers {
         Random random = new Random();
         int result = 0;
         int sum = 0;
+        int maxNumber = 0;
+        int minNumber = 30;
         while (sum < max) {
-            int number = random.nextInt(30);
+            int number = random.nextInt(31);
             sum += number;
             result++;
-        }
-        return result;
-    }
-
-    int maxNumber(int maxSum) {
-        Random random = new Random();
-        int maxNumber = 0;
-        for (int i = 0; i < maxSum; i++) {
-            int number = random.nextInt(30);
             if (number > maxNumber) {
                 maxNumber = number;
             }
+            if (number < minNumber) {
+                minNumber = number;
+            }
+
         }
-        return maxNumber;
+        System.out.println(maxNumber);
+        System.out.println(minNumber);
+        return result;
     }
 }
 

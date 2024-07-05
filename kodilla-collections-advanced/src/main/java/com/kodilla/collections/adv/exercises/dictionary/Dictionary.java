@@ -9,6 +9,7 @@ public class Dictionary {
         List<EnglishWord> englishWords = dictionary.getOrDefault(polishWord, new ArrayList<>());
         englishWords.add(englishWord);
         dictionary.put(polishWord, englishWords);
+
     }
 
     public List<EnglishWord> findEnglishWords(String polishWord) {
@@ -17,9 +18,9 @@ public class Dictionary {
 
     public List<EnglishWord> findEnglishWords(String polishWord, PartOfSpeech partOfSpeech) {
         List<EnglishWord> result = new ArrayList<>();
-        for (EnglishWord englishWord : dictionary.getOrDefault(polishWord, Collections.emptyList())) {
-            if (englishWord.getPartOfSpeech().equals((partOfSpeech)))
-                 result.add(englishWord);
+        for (EnglishWord englishword : dictionary.getOrDefault(polishWord, Collections.emptyList())) {
+            if (englishword.getPartOfSpeech().equals(partOfSpeech))
+                result.add(englishword);
         }
         return result;
     }
@@ -27,5 +28,5 @@ public class Dictionary {
     public int size() {
         return dictionary.size();
     }
-
 }
+

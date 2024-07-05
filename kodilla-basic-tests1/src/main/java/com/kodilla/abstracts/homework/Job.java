@@ -11,10 +11,6 @@ public abstract class Job {
 
     public abstract String getJobTitle();
 
-    public double getSalary() {
-        return salary;
-    }
-
     public String getResponsibilities() {
         return responsibilities;
     }

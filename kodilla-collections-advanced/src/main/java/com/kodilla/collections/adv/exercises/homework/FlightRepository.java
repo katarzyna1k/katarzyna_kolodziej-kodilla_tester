@@ -3,19 +3,20 @@ package com.kodilla.collections.adv.exercises.homework;
 import java.util.*;
 
 public class FlightRepository {
-    public List<Flight> getFlights() {
-        return flights;
+
+
+    public static void main(String[] args) {
+        Map<City, List<Flight>> airport = new HashMap<>();
+
+        Flight flightLublin = new Flight(Arrays.asList("DUBLIN", "London Luton", "Gdańsk"));
+        airport.put(City.LUBLIN, (List<Flight>) flightLublin);
+
+        getFlightsTable(airport);
     }
 
-    private List<Flight> flights;
-
-    public FlightRepository() {
-        flights = new ArrayList<>();
-        flights.add(new Flight("London", "Warsaw"));
-        flights.add(new Flight("Lublin", "Gdansk"));
-        flights.add(new Flight("Warsaw", "Gdansk"));
-        flights.add(new Flight("Dublin", "Lublin"));
-        flights.add(new Flight("Lublin","London"));
+    public static void getFlightsTable(Map<City, List<Flight>> airport) {
+        for (Map.Entry<City, List<Flight>> flights : airport.entrySet()) {
+            System.out.println(flights.getKey() + " " + flights.getValue());
+        }
     }
-
 }

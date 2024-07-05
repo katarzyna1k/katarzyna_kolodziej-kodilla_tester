@@ -31,8 +31,18 @@ public class Book {
         anotherBook.getAuthor();
         anotherBook.getTitle();
 
+        Book bookBis=new Book("Isaac Asimov", "Fundation");
+        System.out.println(bookBis.toString());
 
         System.out.println(book.getAuthor() + " " + book.getTitle());
         System.out.println(anotherBook.getAuthor() + " " + anotherBook.getTitle());
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "author='" + author + '\'' +
+                ", title='" + title + '\'' +
+                '}';
     }
 }

@@ -1,9 +1,12 @@
 package com.kodilla.collections.interfaces;
 
+import com.kodilla.collections.arrays.ShapeUtils;
+
 public class InterfacesDemo {
     public static void main(String[] args) {
         Square square = new Square(10.0);
         showShapeDetails(square);
+        ShapeUtils.displayShapeInfo(square);
 
         Circle circle = new Circle(7.0);
         showShapeDetails(circle);

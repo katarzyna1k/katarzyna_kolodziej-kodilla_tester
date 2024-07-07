@@ -22,7 +22,7 @@ public class StampsApplication {
         System.out.println(stamps.size());
 
         for (Stamp stampObject:stamps){
-            if(stampObject.getStampLength()>40)
+            if(stampObject.getStampLength()>40 && stampObject.isStamped()==true)
                 System.out.println(stampObject.getStampName());
         }
 

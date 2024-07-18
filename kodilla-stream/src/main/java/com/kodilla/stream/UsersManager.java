@@ -9,6 +9,15 @@ public class UsersManager {
 
         List<String> chemistGroupUsernames = filterChemistGroupUsernames();
         System.out.println(chemistGroupUsernames);
+
+        List<User> olderThan = olderThanUserAge(45);
+        //printOlderUsers(olderThan);
+        System.out.println(olderThan);
+
+        long numberOfCountedPosts = sumOfPostsWithLimit();
+        System.out.println(numberOfCountedPosts);
+
+
     }
 
     private static void processUserStream() {
@@ -31,5 +40,26 @@ public class UsersManager {
                 .collect(Collectors.toList());
         return usernames;
 
+    }
+
+    public static List<User> olderThanUserAge(int number) {
+        List<User> usersAge = UsersRepository.getUsersList()
+                .stream()
+                .filter(user -> user.getAge() > number)
+                .collect(Collectors.toList());
+        return usersAge;
+    }
+
+//    public static void printOlderUsers(List<User> users) {
+//        users.forEach(System.out::println);
+//    }
+
+    public static long sumOfPostsWithLimit() {
+        long countedPosts = UsersRepository.getUsersList()
+                .stream()
+                .mapToLong(u-> u.getNumberOfPost())
+                .filter(n -> n> 2)
+                .count();
+        return countedPosts;
     }
 }

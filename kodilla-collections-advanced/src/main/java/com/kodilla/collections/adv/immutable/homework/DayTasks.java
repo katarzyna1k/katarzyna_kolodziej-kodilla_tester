@@ -1,4 +1,4 @@
-package com.kodilla.collections.adv.immutable.homevork;
+package com.kodilla.collections.adv.immutable.homework;
 
 import java.util.Scanner;
 

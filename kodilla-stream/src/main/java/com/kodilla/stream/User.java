@@ -44,4 +44,14 @@ public class User {
     public int getAge() {
         return age;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", age=" + age +
+                ", numberOfPost=" + numberOfPost +
+                ", group='" + group + '\'' +
+                '}';
+    }
 }

@@ -9,9 +9,9 @@ class PersonTestSuit {
 
     @ParameterizedTest
     @MethodSource(value = "com.kodilla.parametrized_tests.homework.DoubleSourcesForBMI#provideDoubleForPersonBMI")
-    public void stringExecutionGetBIM(double heightInMeters, double weightInKilogram, String expected) {
+    public void shouldCalculateBIM(double heightInMeters, double weightInKilogram, String expected) {
         Person person = new Person(heightInMeters, weightInKilogram);
-        assertEquals(person.getBMI(), expected);
+        assertEquals(expected, person.getBMI());
 
     }
 

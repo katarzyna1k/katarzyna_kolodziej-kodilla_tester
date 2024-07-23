@@ -6,7 +6,7 @@ public class Student {
     private String name;
     private Teacher teacher;
 
-    public Student(Teacher teacher, String name) {
+    public Student(String name,Teacher teacher) {
         this.teacher = teacher;
         this.name = name;
     }

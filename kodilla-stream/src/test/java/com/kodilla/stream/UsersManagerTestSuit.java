@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersManagerTest {
+public class UsersManagerTestSuit {
 
     @Test
     public void shouldReturnUsernameForGroupChemists() {
@@ -37,12 +37,5 @@ public class UsersManagerTest {
     public void testSumOfPostsWithLimit() {
         long sumOfPosts = UsersManager.sumOfPostsWithLimit();
         Assertions.assertEquals(3, sumOfPosts);
-
-        List<Integer> userSumOfPosts = new ArrayList<>();
-        userSumOfPosts.add(7);
-        userSumOfPosts.add(4648);
-        userSumOfPosts.add(116);
-        Assertions.assertEquals(userSumOfPosts, sumOfPosts);
-
     }
 }

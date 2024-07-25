@@ -11,7 +11,7 @@ public class WarehouseApp {
 
         try {
             Order orderNumber = warehouse.getOrder("1");
-            System.out.println("Order: "+orderNumber);
+            System.out.println("Order: " + orderNumber);
         } catch (OrderDoesntExistException e) {
             System.out.println("This order does not exist");
         }

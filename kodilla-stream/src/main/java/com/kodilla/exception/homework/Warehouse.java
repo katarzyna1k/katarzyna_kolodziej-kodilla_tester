@@ -15,10 +15,9 @@ public class Warehouse {
     }
 
     public Order getOrder(String number) throws OrderDoesntExistException {
-        orders.stream()
-                .map(o -> o.getNumber())
-                .forEach(orderNumber -> System.out.println("This is your order: " + orderNumber));
-        throw new OrderDoesntExistException();
+        return orders.stream()
+                .filter(o -> o.getNumber().equals(number))
+                .findAny().orElseThrow(()->new OrderDoesntExistException());
 
 
     }

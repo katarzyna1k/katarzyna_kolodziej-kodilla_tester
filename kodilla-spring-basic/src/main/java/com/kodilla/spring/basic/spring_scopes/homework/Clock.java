@@ -11,6 +11,5 @@ public class Clock {
 
     public LocalTime getCurrentTime() {
         return LocalTime.now();
-
     }
 }

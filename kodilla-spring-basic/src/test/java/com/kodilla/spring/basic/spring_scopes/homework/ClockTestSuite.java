@@ -23,7 +23,6 @@ class ClockTestSuite {
         LocalTime time2 = clock2.getCurrentTime();
         Thread.sleep(1000);
         Clock clock3 = context.getBean(Clock.class);
-        Thread.sleep(1000);
         LocalTime time3 = clock3.getCurrentTime();
 
         Assertions.assertNotEquals(time2, time1);

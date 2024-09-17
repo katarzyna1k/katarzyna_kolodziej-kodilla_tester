@@ -1,4 +1,4 @@
-package com.kodilla.selenium.allegro;
+package com.kodilla.selenium.ebay;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
-public class AllegroTestingApp {
+public class EbayTestingAppWithXpath {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\katar\\selenium-drivers\\Chrome\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();

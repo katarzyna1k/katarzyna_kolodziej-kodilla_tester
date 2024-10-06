@@ -1,6 +1,7 @@
 package com.kodilla.abstracts;
 
 public class Dog extends Animal {
+
     public Dog(int numberOfLegs, String name) {
         super(4, name);
 
@@ -19,7 +20,7 @@ public class Dog extends Animal {
     }
 
     public void dogHasName() {
-        System.out.println("By the power given to me by me i call You;  " + getName());
+        System.out.println("By the power given to me by me i call You: " + getName());
 
     }
 

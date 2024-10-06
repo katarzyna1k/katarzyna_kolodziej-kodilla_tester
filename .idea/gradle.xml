@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/kodilla-selenium" />
             <option value="$PROJECT_DIR$/kodilla-spring-basic" />
             <option value="$PROJECT_DIR$/kodilla-stream" />
+            <option value="$PROJECT_DIR$/kodilla-testcontainers" />
           </set>
         </option>
       </GradleProjectSettings>

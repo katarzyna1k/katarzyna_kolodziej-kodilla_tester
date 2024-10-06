@@ -1,0 +1,27 @@
+.body{
+    margin:0px;
+}
+.hero{
+    background=#ffffff;
+    padding-top:50px;
+    padding-bottom:50px;
+    text-align:center;
+}
+.intro{
+    padding-top:36px;
+    padding-bottom:36px;
+}
+.container{
+    max-width:900px;
+    margin:0 auto;
+}
+.img_selector{
+    display:inline-block;
+    max-width:48%;
+}
+.info{
+    background:#c8d6e5;
+}
+.links{
+    color:#ee5253;
+}

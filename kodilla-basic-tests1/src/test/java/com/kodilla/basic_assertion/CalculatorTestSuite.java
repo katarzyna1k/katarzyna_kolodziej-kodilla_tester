@@ -12,7 +12,7 @@ public class CalculatorTestSuite {
 
         //int sumResult = calc.addition();
         assertEquals(21, calc.addition());//sumResult );
-        assertEquals(1,calc2.addition());
+        assertEquals(1, calc2.addition());
     }
 
     @Test
@@ -28,13 +28,13 @@ public class CalculatorTestSuite {
     @Test
     public void testPow() {
         Calculator calc = new Calculator(2, 2, 5.8, 2);
-        Calculator calc2= new Calculator(1,1,-2,2);
-        Calculator calc3= new Calculator(1,1,0,2);
+        Calculator calc2 = new Calculator(1, 1, -2, 2);
+        Calculator calc3 = new Calculator(1, 1, 0, 2);
         //double doubleResult = calc.pow();
         double delta = 0.001;
         assertEquals(33.64, calc.pow(), delta);
-        assertEquals(4,calc2.pow(),delta);
-        assertEquals(0,calc3.pow(),delta);
+        assertEquals(4, calc2.pow(), delta);
+        assertEquals(0, calc3.pow(), delta);
     }
 
     @Test
@@ -53,4 +53,31 @@ public class CalculatorTestSuite {
         assertEquals(15625, doubleResult, delta);
     }
 
+    @Test
+    void shouldGetVariableA() {
+        Calculator calculator = new Calculator(13, 10, 5, 6);
+        int a = calculator.getIntA();
+        assertEquals(13, a);
+    }
+
+    @Test
+    void shouldGetVariableB() {
+        Calculator calculator = new Calculator(13, 10, 5, 6);
+        int b = calculator.getIntB();
+        assertEquals(10, b);
+    }
+
+    @Test
+    void shouldGetVariableC() {
+        Calculator calculator = new Calculator(13, 10, 5.3, 6.2);
+        double c = calculator.getIntC();
+        assertEquals(5.3, c);
+    }
+
+    @Test
+    void shouldGetVariableD() {
+        Calculator calculator = new Calculator(13, 10, 5.3, 6.2);
+        double d = calculator.getIntD();
+        assertEquals(6.2, d);
+    }
 }

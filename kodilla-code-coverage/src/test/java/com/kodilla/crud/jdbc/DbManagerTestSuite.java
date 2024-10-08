@@ -1,158 +1,146 @@
-//package com.kodilla.crud.jdbc;
-//
-//import org.junit.jupiter.api.BeforeAll;
-//import org.junit.jupiter.api.Test;
-//
-//import java.sql.ResultSet;
-//import java.sql.SQLException;
-//import java.sql.Statement;
-//import java.util.AbstractMap;
-//import java.util.List;
-//import java.util.Map;
-//
-//import static org.junit.jupiter.api.Assertions.*;
-//
-//class DbManagerTestSuite {
-//    private static DbManager dbManager;
-//
-//    @BeforeAll
-//    public static void setUp() throws SQLException {
-//        dbManager = DbManager.getInstance();
-//    }
-//
-//    @Test
-//    void testConnect() {
-//        assertNotNull(dbManager.getConnection());
-//    }
-//
-//    @Test
-//    void testSelectUsers() throws SQLException {
-//        //Given
-//        String countQuery = "SELECT COUNT(*) FROM USERS";
-//        Statement statement = createStatement();
-//        ResultSet rs = statement.executeQuery(countQuery);
-//        int count = getRowsCount(rs);
-//        insertUsers(statement);
-//
-//        //When
-//        String sqlQuery = "SELECT * FROM USERS";
-//        statement = createStatement();
-//        rs = statement.executeQuery(sqlQuery);
-//
-//        //Then
-//        int counter = getResultsCount(rs);
-//        int expected = count + 5;
-//        assertEquals(expected, counter);
-//
-//        rs.close();
-//        statement.close();
-//
-//    }
-//
-//    private Statement createStatement() throws SQLException {
-//        return dbManager.getConnection().createStatement();
-//    }
-//
-//    private static final List<AbstractMap.SimpleEntry<String, String>> USERS = List.of(
-//            new AbstractMap.SimpleEntry<>("Zara", "Ali"),
-//            new AbstractMap.SimpleEntry<>("Otman", "Use"),
-//            new AbstractMap.SimpleEntry<>("Mark", "Boq"),
-//            new AbstractMap.SimpleEntry<>("Uli", "Wimer"),
-//            new AbstractMap.SimpleEntry<>("Oli", "Kosiw")
-//    );
-//
-//    private void insertUsers(Statement statement) throws SQLException {
-//        for (AbstractMap.SimpleEntry<String, String> user : USERS) {
-//            statement.executeUpdate(
-//                    String.format("INSERT INTO USERS(FIRSTNAME,LASTNAME) VALUES ('%s','%s')",
-//                            user.getKey(),
-//                            user.getValue())
-//            );
-//        }
-//    }
-//
-//    private static int getResultsCount(ResultSet rs) throws SQLException {
-//        int counter = 0;
-//        while (rs.next()) {
-//            System.out.printf("%d, %s, %s%n",
-//                    rs.getInt("ID"),
-//                    rs.getString("FIRSTNAME"),
-//                    rs.getString("LASTNAME"));
-//            counter++;
-//        }
-//        return counter;
-//    }
-//
-//    private static int getRowsCount(ResultSet rs) throws SQLException {
-//        int count = 0;
-//        while (rs.next()) {
-//            count = rs.getInt("COUNT(*)");
-//        }
-//        return count;
-//    }
-//
-//    @Test
-//    void testSelectUsersAndPosts() throws SQLException {
-//        String sqlQuery = "SELECT  firstname , lastname, u.id,COUNT(u.id)\n" +
-//                "FROM users AS u \n" +
-//                "INNER JOIN posts AS p ON u.id= p.user_id \n" +
-//                "GROUP BY u.id\n" +
-//                "ORDER BY firstname, lastname;";
-//        Statement statement = createStatement();
-//        ResultSet resultSet = statement.executeQuery(sqlQuery);
-//        int howManyPeopleHavePosts = getHowManyHaveMoreThan2Posts(resultSet);
-//        insertPostsAndUsers(statement);
-//
-//        String sqlQueryAfterAdd = "SELECT  firstname , lastname, u.id,COUNT(u.id)\n" +
-//                "FROM users AS u \n" +
-//                "INNER JOIN posts AS p ON u.id= p.user_id \n" +
-//                "GROUP BY u.id\n" +
-//                "ORDER BY firstname, lastname;";
-//        statement = createStatement();
-//        resultSet = statement.executeQuery(sqlQueryAfterAdd);
-//
-//        int howManyPeopleHavePostsAfterAdd = getAfterAddHowManyPeopleHaveMoreThan2Posts(resultSet);
-//        int expected = howManyPeopleHavePosts + 3;
-//        assertEquals(expected, howManyPeopleHavePostsAfterAdd);
-//
-//        resultSet.close();
-//        statement.close();
-//
-//
-//    }
-//
-//
-//    private void insertPostsAndUsers(Statement statement) throws SQLException {
-//        statement.executeUpdate(
-//                String.format("INSERT INTO POSTS(body, user_id) VALUES ('%s',1 )",
-//                        "This is a post."))
-//        ;
-//        statement.executeUpdate(
-//                String.format("INSERT INTO POSTS(body, user_id) VALUES ('%s',2 )",
-//                        "This is another post."))
-//        ;
-//        statement.executeUpdate(String.format("INSERT INTO POSTS(body, user_id) VALUES ('%s',29 )",
-//                "This is a third post."
-//        ));
-//
-//    }
-//
-//    private static int getHowManyHaveMoreThan2Posts(ResultSet resultSet) throws SQLException {
-//        int count = 0;
-//        while (resultSet.next()) {
-//            count = resultSet.getInt("COUNT(u.id)");
-//        }
-//        return count;
-//    }
-//
-//    private static int getAfterAddHowManyPeopleHaveMoreThan2Posts(ResultSet resultSet) throws SQLException {
-//        int count = 0;
-//        while (resultSet.next()) {
-//            System.out.printf("%s,%s%n",
-//                    count = resultSet.getString("lastname"));
-//        }
-//        return count;
-//    }
-//
-//
-//}
+package com.kodilla.crud.jdbc;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.AbstractMap;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class DbManagerTestSuite {
+    private static DbManager dbManager;
+
+    @BeforeAll
+    public static void setUp() throws SQLException {
+        dbManager = DbManager.getInstance();
+    }
+
+    @Test
+    void testConnect() {
+        assertNotNull(dbManager.getConnection());
+    }
+
+    @Test
+    void testSelectUsers() throws SQLException {
+        //Given
+        String countQuery = "SELECT COUNT(*) FROM USERS";
+        Statement statement = createStatement();
+        ResultSet rs = statement.executeQuery(countQuery);
+        int count = getRowsCount(rs);
+        insertUsers(statement);
+
+        //When
+        String sqlQuery = "SELECT * FROM USERS";
+        statement = createStatement();
+        rs = statement.executeQuery(sqlQuery);
+
+        //Then
+        int counter = getResultsCount(rs);
+        int expected = count + 5;
+        assertEquals(expected, counter);
+
+        rs.close();
+        statement.close();
+
+    }
+
+    private Statement createStatement() throws SQLException {
+        return dbManager.getConnection().createStatement();
+    }
+
+    private static final List<AbstractMap.SimpleEntry<String, String>> USERS = List.of(
+            new AbstractMap.SimpleEntry<>("Zara", "Ali"),
+            new AbstractMap.SimpleEntry<>("Otman", "Use"),
+            new AbstractMap.SimpleEntry<>("Mark", "Boq"),
+            new AbstractMap.SimpleEntry<>("Uli", "Wimer"),
+            new AbstractMap.SimpleEntry<>("Oli", "Kosiw")
+    );
+
+    private void insertUsers(Statement statement) throws SQLException {
+        for (AbstractMap.SimpleEntry<String, String> user : USERS) {
+            statement.executeUpdate(
+                    String.format("INSERT INTO USERS(FIRSTNAME,LASTNAME) VALUES ('%s','%s')",
+                            user.getKey(),
+                            user.getValue())
+            );
+        }
+    }
+
+    private static int getResultsCount(ResultSet rs) throws SQLException {
+        int counter = 0;
+        while (rs.next()) {
+            System.out.printf("%d, %s, %s%n",
+                    rs.getInt("ID"),
+                    rs.getString("FIRSTNAME"),
+                    rs.getString("LASTNAME"));
+            counter++;
+        }
+        return counter;
+    }
+
+    private static int getRowsCount(ResultSet rs) throws SQLException {
+        int count = 0;
+        while (rs.next()) {
+            count = rs.getInt("COUNT(*)");
+        }
+        return count;
+    }
+
+    @Test
+    void testSelectUsersAndPosts() throws SQLException {
+        insertTestData();
+
+        String sqlQuery = "SELECT firstname, lastname, COUNT(p.id) AS post_count " +
+                "FROM users AS u " +
+                "INNER JOIN posts AS p ON u.id = p.user_id " +
+                "GROUP BY u.id, u.firstname, u.lastname " +
+                "HAVING COUNT(p.id) >= 2 " +
+                "ORDER BY u.firstname, u.lastname;";
+
+
+        Statement statement = createStatement();
+        ResultSet resultSet = statement.executeQuery(sqlQuery);
+
+
+        int userCount = 0;
+        while (resultSet.next()) {
+            String firstName = resultSet.getString("firstname");
+            String lastName = resultSet.getString("lastname");
+            int postCount = resultSet.getInt("post_count");
+
+
+            System.out.printf("User: %s %s, Posts: %d%n", firstName, lastName, postCount);
+            userCount++;
+        }
+
+        assertTrue(userCount >= 2, "Expected at least 2 users with more than 2 posts");
+
+        resultSet.close();
+        statement.close();
+    }
+
+
+    private void insertTestData() throws SQLException {
+        Statement statement = createStatement();
+
+        statement.executeUpdate("INSERT INTO users(firstname, lastname) VALUES ('John', 'Doe')");
+        statement.executeUpdate("INSERT INTO users(firstname, lastname) VALUES ('Jane', 'Smith')");
+        statement.executeUpdate("INSERT INTO users(firstname, lastname) VALUES ('Bob', 'Brown')");
+
+
+        statement.executeUpdate("INSERT INTO posts(body, user_id) VALUES ('Post by John', 1)");
+        statement.executeUpdate("INSERT INTO posts(body, user_id) VALUES ('Post by John - second', 1)");
+        statement.executeUpdate("INSERT INTO posts(body, user_id) VALUES ('Post by Jane', 2)");
+        statement.executeUpdate("INSERT INTO posts(body, user_id) VALUES ('Post by Jane - second', 2)");
+        statement.executeUpdate("INSERT INTO posts(body, user_id) VALUES ('Post by Bob', 3)");
+        statement.executeUpdate("INSERT INTO posts(body, user_id) VALUES ('Another post by Bob', 3)");
+
+        statement.close();
+    }
+
+
+}

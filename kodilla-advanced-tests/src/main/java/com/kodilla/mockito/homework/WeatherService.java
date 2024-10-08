@@ -4,40 +4,46 @@ import java.util.*;
 
 public class WeatherService {
 
-    private Map<String, List<WeatherAppClient>> weatherService = new HashMap<>();
+    private Map<String, Set<WeatherAppClient>> weatherService = new HashMap<>();
 
     public void addClientToMap(String location, WeatherAppClient weatherAppClient) {
-        List<WeatherAppClient> weatherAppClients = this.weatherService.getOrDefault(location, new ArrayList<>());
-        weatherAppClients.add(weatherAppClient);
+        Set<WeatherAppClient> weatherAppClients = this.weatherService.getOrDefault(location, new HashSet<>());
+        weatherAppClients.add(weatherAppClient); // Użycie Set, aby uniknąć duplikatów
         this.weatherService.put(location, weatherAppClients);
     }
 
     public void removeWeatherAppClientFromGivenLocation(String location, WeatherAppClient weatherAppClient) {
-        List<WeatherAppClient> weatherAppClients = this.weatherService.get(location);
-        weatherAppClients.remove(weatherAppClient);
+        Set<WeatherAppClient> weatherAppClients = this.weatherService.get(location);
+        if (weatherAppClients != null) {
+            weatherAppClients.remove(weatherAppClient);
+        }
     }
 
     public void removeWeatherAppClientFromAllLocations(WeatherAppClient weatherAppClient) {
-        List<WeatherAppClient> weatherAppClients = this.weatherService.get(weatherAppClient);
-        weatherAppClients.remove(weatherAppClient);
-
+        for (Set<WeatherAppClient> clients : weatherService.values()) {
+            clients.remove(weatherAppClient);
+        }
     }
 
     public void sendNotificationLocation(String location, String notification) {
-        List<WeatherAppClient> clients = weatherService.get(location); // Pobranie listy klientów dla danej lokalizacji
-        if (clients != null) {
+        Set<WeatherAppClient> clients = weatherService.get(location);
+        if (clients != null && !clients.isEmpty()) {
             for (WeatherAppClient client : clients) {
-                client.notification(notification); // Wysyłanie notyfikacji dla każdego klienta
+                client.notification(notification);
             }
         }
     }
 
-    public void sendNotificationToWeatherAppClients() {
-
+    public void sendNotificationToWeatherAppClients(String notification) {
+        for (Set<WeatherAppClient> clients : weatherService.values()) {
+            for (WeatherAppClient client : clients) {
+                client.notification(notification);
+            }
+        }
     }
 
     public void removeLocation(String location) {
         this.weatherService.remove(location);
-
     }
+
 }

@@ -71,9 +71,6 @@ public class MojaWizytowkaTest {
         File screenshot = driver.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(screenshot, new File("./build/screenshots/" + screenshot.getName()));
 
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-
         WebElement hrefValue = driver.findElement(By.xpath("//li[a[contains(@href, 'jeja')]]"));
         hrefValue.click();
 

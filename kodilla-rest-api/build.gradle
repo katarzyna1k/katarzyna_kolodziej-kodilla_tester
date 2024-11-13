@@ -21,6 +21,7 @@ dependencies {
     testImplementation 'io.rest-assured:rest-assured:5.4.0'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testImplementation 'io.rest-assured:spring-mock-mvc:5.4.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
 
 }
 

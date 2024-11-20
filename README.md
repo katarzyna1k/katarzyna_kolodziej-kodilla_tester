@@ -1,1 +1,1 @@
-This repository was created during my bootcamp of Test Automation in Java. It contains homeworks solved by me and some code provided by organization needed to  create tasks to be solved by me.
+[EN_Katarzyna Kołodziej Certificate.pdf](https://github.com/user-attachments/files/17829540/EN_Katarzyna.Kolodziej.Certificate.pdf)
